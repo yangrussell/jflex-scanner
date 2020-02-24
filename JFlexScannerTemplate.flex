@@ -37,3 +37,8 @@ return "END";
  * lexical rules
  */
 
+"abb"			{return "Found " + yytext() + " at line " + yyline + " and column " + yycolumn; } 
+[a-z A-Z][0-9 a-z A-Z]*	{return "ID: " + yytext();}
+[0-9]+			{return "NUM:" + yytext();}
+{WhiteSpace}		{}
+.			{ /* do nothing */ }
