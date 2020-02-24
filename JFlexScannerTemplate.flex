@@ -42,3 +42,13 @@ return "END";
 [0-9]+			{return "NUM:" + yytext();}
 {WhiteSpace}		{}
 .			{ /* do nothing */ }
+
+
+[\w][\w(\.\w)]*@[a-zA-Z]*.[a-zA-Z]*
+\d\d\d-\d\d\d-\d\d\d\d
+[a-zA-Z._-]* [a-zA-Z._-]*
+[\d]* [\w-]* [A-Z][a-z].
+\d\d\d\d\d
+[a-zA-Z- ]*
+\w\w
+@[\w_.]*
