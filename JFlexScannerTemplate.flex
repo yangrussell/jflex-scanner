@@ -1,4 +1,5 @@
 package scanner;
+
 /**
 * This file defines a simple lexer for the compilers course 2017-2018
 * Comment this file
