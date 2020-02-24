@@ -44,11 +44,11 @@ return "END";
 .			{ /* do nothing */ }
 
 
-[\w][\w(\.\w)]*@[a-zA-Z]*.[a-zA-Z]*
-\d\d\d-\d\d\d-\d\d\d\d
-[a-zA-Z._-]* [a-zA-Z._-]*
-[\d]* [\w-]* [A-Z][a-z].
-\d\d\d\d\d
-[a-zA-Z- ]*
-\w\w
-@[\w_.]*
+[\w][\w(\.\w)]*@[a-zA-Z]*.[a-zA-Z]* {return "EMAIL ADDRESS: " + yytext()}
+\d\d\d-\d\d\d-\d\d\d\d				{return "PHONE NUMBER: " + yytext()}
+[a-zA-Z._-]* [a-zA-Z._-]*			{return "NAME: " + yytext()}
+[\d]* [\w-]* [A-Z][a-z].			{return "STREET ADDRESS: " + yytext()}
+\d\d\d\d\d							{return "ZIP CODE: " + yytext()}
+[a-zA-Z- ]*							{return "CITY: " + yytext()}
+\w\w								{return "STATE: " + yytext()}
+@[\w_.]*							{return "INSTAGRAM HANDLE: " + yytext()}
