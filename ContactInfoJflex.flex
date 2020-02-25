@@ -1,8 +1,16 @@
 package scanner;
 
 /**
-* This file defines a simple lexer for the compilers course 2017-2018
-* Comment this file
+* This file defines a simple lexer for the compilers course 2017-2018.
+* It parses contact information for the following fields:
+* Email address (i.e. '22johnd@students.harker.org')
+* Phone number (i.e. '408-123-4567')
+* Name (i.e. 'John B Doe')
+* Zip code (i.e. '95129')
+* State (i.e. 'CA')
+* Street address (i.e. '500 Saratoga Avenue')
+* Github URL (i.e. 'https://github.com/johndoe')
+* Instagram handle (i.e. '@johndoe7')
 */
 import java.io.*;
 
@@ -26,10 +34,6 @@ return "END";
 %eofval}
 LineTerminator = \r|\n|\r\n
 WhiteSpace = {LineTerminator} | [ \t\f]
-
-/**
- * Pattern definitions
- */
  
  
 %%
