@@ -36,14 +36,6 @@ return "END";
 /**
  * lexical rules
  */
-
-"abb"			{return "Found " + yytext() + " at line " + yyline + " and column " + yycolumn; } 
-[a-z A-Z][0-9 a-z A-Z]*	{return "ID: " + yytext();}
-[0-9]+			{return "NUM:" + yytext();}
-{WhiteSpace}		{}
-.			{ /* do nothing */ }
-
-
 [\w][\w(\.\w)]*@[a-zA-Z]*.[a-zA-Z]* {return "EMAIL ADDRESS: " + yytext()}
 \d\d\d-\d\d\d-\d\d\d\d				{return "PHONE NUMBER: " + yytext()}
 [a-zA-Z._-]* [a-zA-Z._-]*			{return "NAME: " + yytext()}
@@ -52,3 +44,4 @@ return "END";
 [a-zA-Z- ]*							{return "CITY: " + yytext()}
 \w\w								{return "STATE: " + yytext()}
 @[\w_.]*							{return "INSTAGRAM HANDLE: " + yytext()}
+.			                        { /* do nothing */ }
