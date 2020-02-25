@@ -15,6 +15,7 @@ import java.io.*;
 %class Scanner
 %unicode
 %line
+%column
 %public
 %function nextToken
 /*  return String objects - the actual lexemes */
@@ -23,8 +24,8 @@ import java.io.*;
 %eofval{
 return "END";
 %eofval}
-/* use switch statement to encode DFA */
-%switch
+LineTerminator = \r|\n|\r\n
+WhiteSpace = {LineTerminator} | [ \t\f]
 
 /**
  * Pattern definitions
@@ -36,12 +37,13 @@ return "END";
 /**
  * lexical rules
  */
-[\w][\w(\.\w)]*@[a-zA-Z]*.[a-zA-Z]* {return "EMAIL ADDRESS: " + yytext()}
-\d\d\d-\d\d\d-\d\d\d\d				{return "PHONE NUMBER: " + yytext()}
-[a-zA-Z._-]* [a-zA-Z._-]*			{return "NAME: " + yytext()}
-[\d]* [\w-]* [A-Z][a-z].			{return "STREET ADDRESS: " + yytext()}
-\d\d\d\d\d							{return "ZIP CODE: " + yytext()}
-[a-zA-Z- ]*							{return "CITY: " + yytext()}
-\w\w								{return "STATE: " + yytext()}
-@[\w_.]*							{return "INSTAGRAM HANDLE: " + yytext()}
+[\w][\w(\.\w)]*@[a-zA-Z]*.[a-zA-Z]* {return "EMAIL ADDRESS: " + yytext();}
+\d\d\d-\d\d\d-\d\d\d\d				{return "PHONE NUMBER: " + yytext();}
+[a-zA-Z._-]* [a-zA-Z._-]*			{return "NAME: " + yytext();}
+[\d]* [\w-]* [A-Z][a-z].			{return "STREET ADDRESS: " + yytext();}
+\d\d\d\d\d							{return "ZIP CODE: " + yytext();}
+[a-zA-Z\- ]*						{return "CITY: " + yytext();}
+\w\w								{return "STATE: " + yytext();}
+@[\w_.]*							{return "INSTAGRAM HANDLE: " + yytext();}
+{WhiteSpace}		                {}
 .			                        { /* do nothing */ }
