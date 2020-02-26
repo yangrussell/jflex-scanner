@@ -48,5 +48,6 @@ WhiteSpace = {LineTerminator} | [ \t\f]
 ^([A-Z][a-z]*[ ]?){LineTerminator}	        {return "NAME: " + yytext();}
 ^https:\/\/github.com\/\w+{LineTerminator}	{return "GITHUB: " + yytext();}
 ^@[\w_.]+{LineTerminator}					{return "INSTAGRAM HANDLE: " + yytext();}
+^\d{2}\/\d{2}\/\d{4}{LineTerminator}        {return "BIRTHDAY: " + yytext();}
 {WhiteSpace}		                        { /* Do nothing */ }
 .			                                { /* Do nothing */ }
