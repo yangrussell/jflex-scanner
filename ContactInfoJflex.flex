@@ -40,14 +40,14 @@ WhiteSpace = {LineTerminator} | [ \t\f]
 /**
  * lexical rules
  */
-^\w+@\w+\.\w+{LineTerminator}               {return "EMAIL ADDRESS: " + yytext();}
-^\d{5}{LineTerminator}					    {return "ZIP CODE: " + yytext();}
-^[A-Z]{2}{LineTerminator}					{return "STATE: " + yytext();}
-^\d{3}-\d{3}-\d{4}{LineTerminator}  		{return "PHONE NUMBER: " + yytext();}
-\d+[ ]([A-Z][a-z]*[ ]?)+{LineTerminator}	{return "STREET ADDRESS: " + yytext();}
-^([A-Z][a-z]*[ ]?){LineTerminator}	        {return "NAME: " + yytext();}
+^\w+@\w+\.\w+{LineTerminator}              {return "EMAIL ADDRESS: " + yytext();}
+^\d{5}{LineTerminator}                     {return "ZIP CODE: " + yytext();}
+^[A-Z]{2}{LineTerminator}                  {return "STATE: " + yytext();}
+^\d{3}-\d{3}-\d{4}{LineTerminator}         {return "PHONE NUMBER: " + yytext();}
+\d+[ ]([A-Z][a-z]*[ ]?)+{LineTerminator}   {return "STREET ADDRESS: " + yytext();}
+^([A-Z][a-z]*[ ]?){LineTerminator}         {return "NAME: " + yytext();}
 ^https:\/\/github.com\/\w+{LineTerminator}	{return "GITHUB: " + yytext();}
-^@[\w_.]+{LineTerminator}					{return "INSTAGRAM HANDLE: " + yytext();}
-^\d{2}\/\d{2}\/\d{4}{LineTerminator}        {return "BIRTHDAY: " + yytext();}
-{WhiteSpace}		                        { /* Do nothing */ }
-.			                                { /* Do nothing */ }
+^@[\w_.]+{LineTerminator}                  {return "INSTAGRAM HANDLE: " + yytext();}
+^\d{2}\/\d{2}\/\d{4}{LineTerminator}       {return "BIRTHDAY: " + yytext();}
+{WhiteSpace}                               { /* Do nothing */ }
+.                                          { /* Do nothing */ }
